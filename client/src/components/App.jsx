@@ -6,7 +6,7 @@ import StreamCreate from "./streams/StreamCreate";
 import StreamDelete from "./streams/StreamDelete";
 import StreamEdit from "./streams/StreamEdit";
 import StreamShow from "./streams/StreamShow";
-import Header from "./header.jsx";
+import Header from "./Header.jsx";
 
 function App() {
   return (

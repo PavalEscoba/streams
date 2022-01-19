@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import GoogleAuth from './GoogleAuth';
+
 const Header = () => {
   return (
     <header className="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
@@ -36,6 +38,9 @@ const Header = () => {
           <Link to="create" className="nav-link">
             About
           </Link>
+        </li>
+        <li className="nav-item">
+         <GoogleAuth />
         </li>
       </ul>
     </header>
