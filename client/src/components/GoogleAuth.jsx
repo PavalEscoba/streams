@@ -1,12 +1,12 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {SignIn, SignOut} from '../actions';
+import {signIn, signOut} from '../actions';
+import Spinner from '../components/Spinner';
+
 
 class GoogleAuth extends React.Component {
-  state = {
-    isSignedIn: null,
-  }
+
   componentDidMount() {
     window.gapi.load("client:auth2", () => {
       window.gapi.client.init({
@@ -14,7 +14,7 @@ class GoogleAuth extends React.Component {
         scope: "email"
       }).then(()=> {
         this.auth = window.gapi.auth2.getAuthInstance();
-        this.setState({isSignedIn: this.auth.isSignedIn.get()});
+        this.onAuthChange(this.auth.isSignedIn.get());
         this.auth.isSignedIn.listen(this.onAuthChange);
       })
     });
@@ -22,9 +22,9 @@ class GoogleAuth extends React.Component {
 
   onAuthChange = (isSignedIn) => {
     if(isSignedIn) {
-      this.props.SignIn();
+      this.props.signIn(this.auth.currentUser.get().getId());
     } else {
-      this.props.SignOut();
+      this.props.signOut();
     }
   }
 
@@ -34,10 +34,14 @@ class GoogleAuth extends React.Component {
 
   onSignOutClick = () => {
     this.auth.signOut();
+    console.log(this.auth);
   }
 
   AuthBtn = () => {
-    if(this.state.isSignedIn) {
+    if(this.props.isSignedIn === null) {
+      return <Spinner />
+    }
+    else if(this.props.isSignedIn) {
       return <button className="btn btn-success" onClick={this.onSignOutClick}><i className="fa fa-google" style={{marginRight: 10}}></i> Sign out</button>
     } else {
       return <button className="btn btn-primary" onClick={this.onSignInClick}><i className="fa fa-google" style={{marginRight: 10}}></i>Sign in</button>
@@ -53,4 +57,9 @@ class GoogleAuth extends React.Component {
   };
 };
 
-export default connect(null, {SignIn, SignOut})(GoogleAuth);
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {isSignedIn: state.authStatus.isSignedIn}
+};
+
+export default connect(mapStateToProps, {signIn, signOut})(GoogleAuth);
