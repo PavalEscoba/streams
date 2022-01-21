@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import GoogleAuth from './GoogleAuth';
+import GoogleAuth from "./GoogleAuth";
 
 const Header = () => {
   return (
@@ -15,8 +15,8 @@ const Header = () => {
 
       <ul className="nav nav-pills">
         <li className="nav-item">
-          <Link to="/" className="nav-link" aria-current="page">
-            Home
+          <Link to="/streams/new" className="nav-link" aria-current="page">
+            Create
           </Link>
         </li>
         <li className="nav-item">
@@ -40,7 +40,7 @@ const Header = () => {
           </Link>
         </li>
         <li className="nav-item">
-         <GoogleAuth />
+          <GoogleAuth />
         </li>
       </ul>
     </header>
