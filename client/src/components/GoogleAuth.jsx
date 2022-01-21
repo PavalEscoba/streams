@@ -34,7 +34,6 @@ class GoogleAuth extends React.Component {
 
   onSignOutClick = () => {
     this.auth.signOut();
-    console.log(this.auth);
   }
 
   AuthBtn = () => {
@@ -58,7 +57,6 @@ class GoogleAuth extends React.Component {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {isSignedIn: state.authStatus.isSignedIn}
 };
 

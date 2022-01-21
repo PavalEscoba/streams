@@ -17,18 +17,20 @@ function App() {
             <h1>App</h1>
           </div>
         </div>
-        <div className="row">
-          <div className="col-12">
-            <BrowserRouter>
+        <BrowserRouter>
+          <div className="row">
+            <div className="col-12">
               <Header />
-              <Route exact path="/" component={StreamList}></Route>
-              <Route path="/streams/new" component={StreamCreate}></Route>
-              <Route path="/streams/edit" component={StreamEdit}></Route>
-              <Route path="/streams/delete" component={StreamDelete}></Route>
-              <Route path="/streams/show" component={StreamShow}></Route>
-            </BrowserRouter>
+            </div>
           </div>
-        </div>
+          <div className="row">
+            <Route exact path="/" component={StreamList}></Route>
+            <Route path="/streams/new" component={StreamCreate}></Route>
+            <Route path="/streams/edit" component={StreamEdit}></Route>
+            <Route path="/streams/delete" component={StreamDelete}></Route>
+            <Route path="/streams/show" component={StreamShow}></Route>
+          </div>
+        </BrowserRouter>
       </div>
     </div>
   );
