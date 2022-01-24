@@ -8,9 +8,35 @@ class StreamList extends React.Component {
     this.props.fetchStreams();
   }
 
-  render() {
-    return <h1>StreamList</h1>;
-  }
-}
+  renderList = () => {
+    return (
+      <ul className="list-group">
+        {this.props.streams.map((stream) => {
+          return (
+            <li key={stream.title} className="list-group-item d-flex justify-content-between align-items-center">
+              <div className="content">
+                <h3>{stream.title}</h3>
+                <p>{stream.description}</p>
+              </div>
+              <i class="fa fa-video-camera" aria-hidden="true"></i>
+            </li>
+          )
+        })}
+      </ul>
+    )
+  };
 
-export default connect(null, { fetchStreams })(StreamList);
+  render() {
+    return (
+      <div className="col-md-6">
+        {this.renderList()}
+      </div>
+    )
+  }
+};
+
+const mapStateToProps = (state) => {
+  return {streams: Object.values(state.streams)}
+};
+
+export default connect(mapStateToProps, { fetchStreams })(StreamList);

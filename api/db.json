@@ -16,9 +16,15 @@
       "id": 3
     },
     {
-      "title": "new stream 5",
-      "description": "my new stream 5",
+      "title": "new stream 4",
+      "description": "my new stream 4",
       "id": 4
+    },
+    {
+      "title": "Stream with User ID",
+      "description": "Trying to create a stream with user ID (which we get when log in)",
+      "userId": "115710465098759415792",
+      "id": 5
     }
   ]
 }
