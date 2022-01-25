@@ -7,7 +7,7 @@ import StreamDelete from "./streams/StreamDelete";
 import StreamEdit from "./streams/StreamEdit";
 import StreamShow from "./streams/StreamShow";
 import Header from "./Header.jsx";
-import history from '../history';
+import history from "../history";
 
 function App() {
   return (
@@ -27,7 +27,7 @@ function App() {
           <div className="row">
             <Route exact path="/" component={StreamList}></Route>
             <Route path="/streams/new" component={StreamCreate}></Route>
-            <Route path="/streams/edit" component={StreamEdit}></Route>
+            <Route path="/streams/edit/:id" component={StreamEdit}></Route>
             <Route path="/streams/delete" component={StreamDelete}></Route>
             <Route path="/streams/show" component={StreamShow}></Route>
           </div>
