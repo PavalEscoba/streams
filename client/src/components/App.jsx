@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { Router, Route } from "react-router-dom";
 
 import StreamList from "./streams/StreamList";
 import StreamCreate from "./streams/StreamCreate";
@@ -7,6 +7,7 @@ import StreamDelete from "./streams/StreamDelete";
 import StreamEdit from "./streams/StreamEdit";
 import StreamShow from "./streams/StreamShow";
 import Header from "./Header.jsx";
+import history from '../history';
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
             <h1>App</h1>
           </div>
         </div>
-        <BrowserRouter>
+        <Router history={history}>
           <div className="row">
             <div className="col-12">
               <Header />
@@ -30,7 +31,7 @@ function App() {
             <Route path="/streams/delete" component={StreamDelete}></Route>
             <Route path="/streams/show" component={StreamShow}></Route>
           </div>
-        </BrowserRouter>
+        </Router>
       </div>
     </div>
   );
