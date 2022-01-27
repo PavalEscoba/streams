@@ -54,7 +54,9 @@ class StreamList extends React.Component {
                 style={{ fontSize: 32 }}
               ></i>
               <div className="content me-3">
-                <h3>{stream.title}</h3>
+                <Link to={`/streams/${stream.id}`}>
+                <h5>{stream.title}</h5>
+                </Link>
                 <p>{stream.description}</p>
               </div>
               {this.renderAdmin(stream)}

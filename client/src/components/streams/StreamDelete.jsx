@@ -30,7 +30,6 @@ class StreamDelete extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <Modal
         title="Delete Stream"
