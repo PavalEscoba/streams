@@ -28,7 +28,7 @@ function App() {
             <Route exact path="/" component={StreamList}></Route>
             <Route path="/streams/new" component={StreamCreate}></Route>
             <Route path="/streams/edit/:id" component={StreamEdit}></Route>
-            <Route path="/streams/delete" component={StreamDelete}></Route>
+            <Route path="/streams/delete/:id" component={StreamDelete}></Route>
             <Route path="/streams/show" component={StreamShow}></Route>
           </div>
         </Router>

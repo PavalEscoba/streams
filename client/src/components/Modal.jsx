@@ -12,7 +12,7 @@ const Modal = ({ title, content, actions, onDismiss }) => {
       }}
     >
       <div
-        className="modal-dialog"
+        className="modal-dialog pt-5"
         onClick={(e) => {
           e.stopPropagation();
         }}
